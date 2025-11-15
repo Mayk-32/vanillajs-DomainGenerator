@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded",function(){
-    let pronoun= ["the","our","your","their"];
-    let adjectives= ["fearless","strong","great","amazing","genius"];
-    let nouns= ["honeyBadger","cat","runner","cheetah","elephant"];
-    let domains= [".int",".com",".org",".net",".pt"];
+    let pronoun= ["they","we","you","I"];
+    let adjectives= ["clever","strong","great","amazing"];
+    let nouns= ["cat","runner","cheetah","elephant"];
+    let domains= [".org",".com",".net",".pt"];
 
     function generateDomains(){
         let results=[];
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded",function(){
                         results.push (`${p}${a}${n}${d}`);
                         if(n.endsWith(d.replace(".",""))){
                             let hackedDomain=`${p}${a}${n.slice(0, -d.length+1)}${d}`;
-                            results.push(hackedDomain);
+                            results.push(hackedDomain)
                         }
                     }
                 }
@@ -21,8 +21,11 @@ document.addEventListener("DOMContentLoaded",function(){
         }
         let output=results.map(domain=> `<p>${domain}</p>`).join("");
         document.getElementById("domainResults").innerHTML=output
+
         
     }
     window.generateDomains=generateDomains;
+
+
 
 });
